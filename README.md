@@ -5,7 +5,7 @@ This repository contains the codes associated with [Limits of individual consent
 
 ## Facebook100 dataset
 
-The [Facebook100 dataset](http://doi.org/10.1016/j.physa.2011.12.021) must be [downloaded](https://archive.org/details/oxford-2005-facebook-matrix) and uncompressed in the `Facebook100` directory.
+The [Facebook100 dataset](http://doi.org/10.1016/j.physa.2011.12.021) must be [downloaded](https://archive.org/details/oxford-2005-facebook-matrix) and uncompressed in the `Facebook100` directory. The individual edgelists are extracted by executing the python script `extract_edgelists.py`.
 
 
 ## Numerical simulations and generating the figures
