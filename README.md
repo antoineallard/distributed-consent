@@ -5,7 +5,7 @@ This repository contains the codes associated with [Limits of individual consent
 
 ## Facebook100 dataset
 
-The [Facebook100 dataset](https://archive.org/details/oxford-2005-facebook-matrix) must be [downloaded](https://archive.org/details/oxford-2005-facebook-matrix)  downloaded to the `Facebook100` directory.
+The [Facebook100 dataset](http://doi.org/10.1016/j.physa.2011.12.021) must be [downloaded](https://archive.org/details/oxford-2005-facebook-matrix) downloaded and uncompressed in the `Facebook100` directory.
 
 
 ## Numerical simulations and generating the figures
