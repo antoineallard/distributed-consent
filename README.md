@@ -3,10 +3,10 @@
 This repository contains the codes associated with [Limits of individual consent and models of distributed consent in online social networks] by J. Lovato, A. Allard, R. Harp and L. Hébert-Dufresne.
 
 
-## Numerical simulations and generating the figures
-
-
 ## Facebook datasets
+
+
+## Numerical simulations and generating the figures
 
 
 ## Paper
