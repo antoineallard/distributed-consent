@@ -3,7 +3,9 @@
 This repository contains the codes associated with [Limits of individual consent and models of distributed consent in online social networks] by [J. Lovato], [A. Allard], [R. Harp] and [L. Hébert-Dufresne].
 
 
-## Facebook datasets
+## Facebook100 dataset
+
+The [Facebook100 dataset](https://archive.org/details/oxford-2005-facebook-matrix) must be [downloaded](https://archive.org/details/oxford-2005-facebook-matrix)  downloaded to the `Facebook100` directory.
 
 
 ## Numerical simulations and generating the figures
