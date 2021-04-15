@@ -1,5 +1,6 @@
 #!/bin/bash
 # @author: Antoine Allard <antoineallard.info>
+# @author: Laurent-Hébert Dufresne
 
 observation_depth_L_values=(2)
 
@@ -16,7 +17,7 @@ adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
 #now set below
 
 #nb_simulations=700
-nb_simulations=10
+nb_simulations=2
 
 
 # Compiles the binary file if it does not already exist.
