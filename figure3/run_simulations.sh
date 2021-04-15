@@ -15,7 +15,7 @@ adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
 #now set below
 
 #nb_simulations=700
-nb_simulations=700
+nb_simulations=10
 
 
 # Compiles the binary file if it does not already exist.

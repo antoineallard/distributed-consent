@@ -1,5 +1,5 @@
 # -​*- coding: utf-8 -*​-
-# @author: Antoine Allard <antoine.allard.1@gmail.com>
+# @author: Antoine Allard <antoineallard.info>
 
 # Packages
 import matplotlib

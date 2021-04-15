@@ -286,10 +286,6 @@ std::vector<int>  get_components_composition(undirected_graph_t& the_graph,
 int main(int argc, char const *argv[])
 {
 
-  // - connected component of counter-culture
-  // - herd immunity? Probability for a type 1 to be observed compared to when adoption rate equals 0.
-  // - what rate of adoption can prevent "cambridge analytica"-like app to successfully access
-
   // =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
   // Parameters specific to the model.
   double app_coverage = std::stod(argv[3]);
