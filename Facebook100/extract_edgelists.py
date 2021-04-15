@@ -14,13 +14,23 @@ for filename in glob.glob('*.mat'):
     if filename == 'schools.mat':
         continue
 
-    # Extracts the edgelist from the MATLAB file.
-    mat = scipy.io.loadmat(filename)
-    idx = scipy.sparse.find(mat['A'])
-    edgelist = np.transpose(np.array(idx)[:-1,:])
-    np.savetxt(filename.replace('.mat', '.txt'), edgelist, fmt="%15d", delimiter=" ", header=" SourceVertex    TargetVertex")
+    rootname = filename.replace('.mat', '').replace(' ', '')
+    edgelist_filename = rootname + '.txt'
+    archive_filename = rootname + '.txt.tar.xz'
 
-    with tarfile.open(filename.replace('.mat', '.txt.tar.xz'), "w:xz") as tar:
-        tar.add(filename.replace('.mat', '.txt'))
+    if not os.path.isfile(archive_filename):
 
-    os.remove(filename.replace('.mat', '.txt'))
+        print(rootname)
+
+        # Extracts the edgelist from the MATLAB file.
+        mat = scipy.io.loadmat(filename)
+        idx = scipy.sparse.find(mat['A'])
+        edgelist = np.transpose(np.array(idx)[:-1,:])
+        np.savetxt(edgelist_filename, edgelist, fmt="%15d", delimiter=" ", header=" SourceVertex    TargetVertex")
+
+        # Compresses the edgelist.
+        with tarfile.open(archive_filename, "w:xz") as tar:
+            tar.add(edgelist_filename)
+
+        # Removes the edgelist.
+        os.remove(edgelist_filename)

@@ -50,12 +50,12 @@ ax0 = fig.add_subplot(gs[0, 1])
 ax1 = fig.add_subplot(gs[0, 2])
 ax2 = fig.add_subplot(gs[0, 0])
 
-linestyles = {0.333333: "-",
-              0.50000: "--",
-              0.800000: "-."}
-colors = {0.333333: plt.rcParams["axes.prop_cycle"].by_key()['color'][0],
-          0.500000: plt.rcParams["axes.prop_cycle"].by_key()['color'][1],
-          0.800000: plt.rcParams["axes.prop_cycle"].by_key()['color'][2]}
+# linestyles = {0.333333: "-",
+#               0.50000: "--",
+#               0.800000: "-."}
+# colors = {0.333333: plt.rcParams["axes.prop_cycle"].by_key()['color'][0],
+#           0.500000: plt.rcParams["axes.prop_cycle"].by_key()['color'][1],
+#           0.800000: plt.rcParams["axes.prop_cycle"].by_key()['color'][2]}
 
 
 # for name, sub_df in df0.loc[quantity_to_plot].groupby(level=0):
@@ -65,7 +65,7 @@ for names in glob.glob("../Facebook100/*.txt.tar.xz"):
 
     name = os.path.basename(names).split(".")[0]
 
-    graph_properties_filename = "results/emergence_of_components/" + name + ".dat"
+    graph_properties_filename = "results/" + name + ".dat"
 
     if os.path.isfile(graph_properties_filename): # and name not in ["Caltech36"]:
 
@@ -87,53 +87,74 @@ for names in glob.glob("../Facebook100/*.txt.tar.xz"):
         # if nb_vertices < 1e4:
         #     print(name, end=" ")
 
-        print("{:15} {:7d} {:10.2f}".format(name, df.iloc[0]["NbVertices"], df0["frequency"].mean()))
+        print("{:15} {:7d} {:10.2f}".format(name, df.iloc[0]["NbVertices"], df0["frequency"].loc['obs_comp'].mean()))
+
+        obs_depth = 2
+        priv_prof_frac = 0.333333
+        app_coverage = 0.01
 
         quantity_to_plot = "counter_culture"
-        for obs_depth, sub_df in df0.loc[quantity_to_plot].groupby(level=0):
-            if obs_depth in [2]:
-
-                for priv_prof_frac, sub_df in df0.loc[quantity_to_plot, obs_depth].groupby(level=0):
-                    if priv_prof_frac in [0.333333]:
-
-                        for app_coverage, sub_df in df0.loc[quantity_to_plot, obs_depth, priv_prof_frac].groupby(level=0):
-                            if app_coverage in [0.01]:
-
-                                ax0.plot(df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].index.values * priv_prof_frac,
-                                         df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values,
-                                         # color=sns.color_palette("Blues")[4], alpha=0.3)
-                                         linewidth=1.5, color="#f29e78", alpha=0.35)
+        ax0.plot(df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].index.values * priv_prof_frac,
+                 df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].values,
+                 linewidth=1.5, color="#f29e78", alpha=0.35)
 
         quantity_to_plot = "herd_immunity"
-        for obs_depth, sub_df in df0.loc[quantity_to_plot].groupby(level=0):
-            if obs_depth in [2]:
-
-                for priv_prof_frac, sub_df in df0.loc[quantity_to_plot, obs_depth].groupby(level=0):
-                    if priv_prof_frac in [0.333333]:
-
-                        for app_coverage, sub_df in df0.loc[quantity_to_plot, obs_depth, priv_prof_frac].groupby(level=0):
-                            if app_coverage in [0.01]:
-
-                                ax1.plot(df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].index.values * priv_prof_frac,
-                                         df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values / df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values[0],
-                                         # color=sns.color_palette("Greens")[4], alpha=0.3)
-                                         linewidth=1.5, color="#f278cc", alpha=0.35)
-
+        ax1.plot(df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].index.values * priv_prof_frac,
+                 df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].values / df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].values[0],
+                 linewidth=1.5, color="#f278cc", alpha=0.35)
 
         quantity_to_plot = "obs_comp"
-        for obs_depth, sub_df in df0.loc[quantity_to_plot].groupby(level=0):
-            if obs_depth in [2]:
+        ax2.plot(df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].index.values * priv_prof_frac,
+                 df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].values,
+                 linewidth=1.5, color="#78ccf2", alpha=0.35)
 
-                for priv_prof_frac, sub_df in df0.loc[quantity_to_plot, obs_depth].groupby(level=0):
-                    if priv_prof_frac in [0.333333]:
-
-                        for app_coverage, sub_df in df0.loc[quantity_to_plot, obs_depth, priv_prof_frac].groupby(level=0):
-                            if app_coverage in [0.01]:
-
-                                ax2.plot(df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].index.values * priv_prof_frac,
-                                         df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values,
-                                         # color=sns.color_palette("Reds")[4], alpha=0.3)
-                                         linewidth=1.5, color="#78ccf2", alpha=0.35)
+        # for obs_depth, sub_df in df0['mean'].loc[quantity_to_plot].groupby(level=0):
+        #     print(obs_depth)
+        #     if obs_depth in [2]:
+        #
+        #         for priv_prof_frac, sub_df in df0['mean'].loc[quantity_to_plot, obs_depth].groupby(level=0):
+        #             print(priv_prof_frac)
+        #             if priv_prof_frac in [0.333333]:
+        #
+        #                 for app_coverage, sub_df in df0.loc[quantity_to_plot, obs_depth, priv_prof_frac].groupby(level=0):
+        #                     if app_coverage in [0.01]:
+        #                         print('ici')
+        #
+        #                         ax0.plot(df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].index.values * priv_prof_frac,
+        #                                  df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values,
+        #                                  # color=sns.color_palette("Blues")[4], alpha=0.3)
+        #                                  linewidth=1.5, color="#f29e78", alpha=0.35)
+        #
+        # quantity_to_plot = "herd_immunity"
+        # for obs_depth, sub_df in df0.loc[quantity_to_plot].groupby(level=0):
+        #     if obs_depth in [2]:
+        #
+        #         for priv_prof_frac, sub_df in df0.loc[quantity_to_plot, obs_depth].groupby(level=0):
+        #             if priv_prof_frac in [0.333333]:
+        #
+        #                 for app_coverage, sub_df in df0.loc[quantity_to_plot, obs_depth, priv_prof_frac].groupby(level=0):
+        #                     if app_coverage in [0.01]:
+        #
+        #                         ax1.plot(df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].index.values * priv_prof_frac,
+        #                                  df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values / df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values[0],
+        #                                  # color=sns.color_palette("Greens")[4], alpha=0.3)
+        #                                  linewidth=1.5, color="#f278cc", alpha=0.35)
+        #
+        #
+        # quantity_to_plot = "obs_comp"
+        # for obs_depth, sub_df in df0.loc[quantity_to_plot].groupby(level=0):
+        #     if obs_depth in [2]:
+        #
+        #         for priv_prof_frac, sub_df in df0.loc[quantity_to_plot, obs_depth].groupby(level=0):
+        #             if priv_prof_frac in [0.333333]:
+        #
+        #                 for app_coverage, sub_df in df0.loc[quantity_to_plot, obs_depth, priv_prof_frac].groupby(level=0):
+        #                     if app_coverage in [0.01]:
+        #
+        #                         ax2.plot(df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].index.values * priv_prof_frac,
+        #                                  df0.loc[quantity_to_plot, obs_depth, priv_prof_frac, app_coverage]['mean'].values,
+        #                                  # color=sns.color_palette("Reds")[4], alpha=0.3)
+        #                                  linewidth=1.5, color="#78ccf2", alpha=0.35)
 
 
 ax0.set_xlabel("Adoption of distributed consent")
