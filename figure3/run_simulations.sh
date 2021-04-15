@@ -1,4 +1,5 @@
-
+#!/bin/bash
+# @author: Antoine Allard <antoineallard.info>
 
 observation_depth_L_values=(2)
 
@@ -41,8 +42,8 @@ for nname in ${networks[*]}; do
   output_filename=results/${network_name}.dat
   # if [[ -f $output_filename ]]; then rm $output_filename; fi
 
-  if [[ ! -f ${network_name}_empty.tmp ]]; then
-      touch ${network_name}_empty.tmp
+  if [[ ! -f results/${network_name}_empty.tmp ]]; then
+      touch results/${network_name}_empty.tmp
       echo ${network_name}
 
       # Prints the header of the file if the files does not already exist.

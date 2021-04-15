@@ -1,4 +1,5 @@
-
+#!/bin/bash
+# @author: Antoine Allard <antoineallard.info>
 
 observation_depth_L_values=(2)
 
