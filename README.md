@@ -4,7 +4,7 @@ This repository contains the codes associated with the article
 
 Limits of individual consent and models of distributed consent in online social networks<br/>
 [J. Lovato], [A. Allard], [R. Harp] and [L. Hébert-Dufresne]<br/>
-[arXiv:2006.16140] (2020)
+[arXiv:2006.16140]
 
 
 ## Facebook100 dataset
