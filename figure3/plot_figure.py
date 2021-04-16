@@ -3,7 +3,6 @@
 # @author: Laurent-Hébert Dufresne
 
 # Packages
-from pylab import *
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.gridspec
@@ -60,9 +59,8 @@ for names in glob.glob("../Facebook100/*.txt.tar.xz"):
         header = open(graph_properties_filename, 'r').readline().replace('#', ' ').split()
         df = pd.read_table(graph_properties_filename, names=header, comment="#", delimiter=r"\s+")
 
-        # if df["NbVertices"][0].item() < 2000:
-        #     continue
-
+        if df["NbVertices"][0].item() < 2000:
+            continue
 
         df["counter_culture"] = (df["NObsGCNbType0"] + df["NObsGCNbType1"] + df["NObsGCNbType2"]) / df["NbVertices"]
         df["herd_immunity"] = (df["ObsNbType1"] / (df["ObsNbType1"] + df["NObsNbType1"]))
@@ -93,25 +91,23 @@ for names in glob.glob("../Facebook100/*.txt.tar.xz"):
                  linewidth=1.5, color='k', alpha=0.35)
 
 
-ax0.set_xlabel("Adoption of distributed consent")
-ax1.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Consent passport adoption = 100\%')
-ax2.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Consent passport adoption = 50\%')
 ax0.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Consent passport adoption = 90\%')
 ax0.plot(np.arange(0,0.34,0.01), (2/3)*np.arange(0,0.34,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
-ax1.plot(np.arange(0,0.34,0.01), (2/3)*np.arange(0,0.34,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
-ax2.plot(np.arange(0,0.34,0.01), (2/3)*np.arange(0,0.34,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
-
-ax2.set_ylabel("Largest unobserved component")
-ax2.legend(loc="upper left", ncol=1, prop={"size": "x-small"})
-ax1.legend(loc="upper left", ncol=1, prop={"size": "x-small"})
+ax0.set_xlabel("Adoption of distributed consent")
 ax0.legend(loc="upper left", ncol=1, prop={"size": "x-small"})
-
 ax0.set_ybound(0,0.4)
-ax1.set_ybound(0,0.4)
-ax2.set_ybound(0,0.4)
 
+ax1.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Consent passport adoption = 100\%')
+ax1.plot(np.arange(0,0.34,0.01), (2/3)*np.arange(0,0.34,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
+ax1.legend(loc="upper left", ncol=1, prop={"size": "x-small"})
 ax1.set_xlabel("Adoption of distributed consent")
+ax1.set_ybound(0,0.4)
 
+ax2.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Consent passport adoption = 50\%')
+ax2.plot(np.arange(0,0.34,0.01), (2/3)*np.arange(0,0.34,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
+ax2.legend(loc="upper left", ncol=1, prop={"size": "x-small"})
 ax2.set_xlabel("Adoption of distributed consent")
+ax2.set_ybound(0,0.4)
+ax2.set_ylabel("Largest unobserved component")
 
-fig.savefig("figure3.pdf")
+fig.savefig("figure3.pdf", bbox_inches='tight')

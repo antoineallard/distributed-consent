@@ -17,7 +17,7 @@ adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
 #now set below
 
 #nb_simulations=700
-nb_simulations=2
+nb_simulations=25
 
 
 # Compiles the binary file if it does not already exist.
@@ -32,7 +32,8 @@ fi
 
 # Loops over all available graphs.
 # networks=(Dartmouth6 Brown11 UC64 William77 Williams40 Brandeis99 Maine59 UCSC68 Johns_Hopkins55 Vassar85 Vanderbilt48 Duke14 Georgetown15 Rice31 American75 USFCA72 Mich67 Colgate88 Carnegie49 Rochester38 UChicago30 Haverford76 Princeton12 Wesleyan43 Yale4 Caltech36 WashU32 Swarthmore42 Reed98 Simmons81 Bowdoin47 Tulane29 MIT8 Wake73 Pepperdine86 Hamilton46 Bucknell39 Emory27 Vermont70 Trinity100 Santa74 Middlebury45 Wellesley22 Tufts18 Howard90 Oberlin44 Smith60 Amherst41 Villanova62 Lehigh96)
-networks=(American75 Amherst41 Auburn71 BC17 BU10 Baylor93 Berkeley13 Bingham82 Bowdoin47 Brandeis99 Brown11 Bucknell39 Cal65 Caltech36 Carnegie49 Colgate88 Columbia2 Cornell5 Dartmouth6 Duke14 Emory27 FSU53 GWU54 Georgetown15 Hamilton46 Harvard1 Haverford76 Howard90 Indiana69 JMU79 JohnsHopkins55 Lehigh96 MIT8 MSU24 MU78 Maine59 Maryland58 Mich67 Michigan23 Middlebury45 Mississippi66 NYU9 Northeastern19 Northwestern25 NotreDame57 Oberlin44 Oklahoma97 Penn94 Pepperdine86 Princeton12 Reed98 Rice31 Rochester38 Rutgers89 Santa74 Simmons81 Smith60 Stanford3 Swarthmore42 Syracuse56 Temple83 Tennessee95 Texas80 Texas84 Trinity100 Tufts18 Tulane29 UC33 UC61 UC64 UCF52 UCLA26 UCSB37 UCSC68 UCSD34 UChicago30 UConn91 UF21 UGA50 UIllinois20 UMass92 UNC28 UPenn7 USC35 USF51 USFCA72 UVA16 Vanderbilt48 Vassar85 Vermont70 Villanova62 Virginia63 Wake73 WashU32 Wellesley22 Wesleyan43 William77 Williams40 Wisconsin87 Yale4)
+# networks=(American75 Amherst41 Auburn71 BC17 BU10 Baylor93 Berkeley13 Bingham82 Bowdoin47 Brandeis99 Brown11 Bucknell39 Cal65 Caltech36 Carnegie49 Colgate88 Columbia2 Cornell5 Dartmouth6 Duke14 Emory27 FSU53 GWU54 Georgetown15 Hamilton46 Harvard1 Haverford76 Howard90 Indiana69 JMU79 JohnsHopkins55 Lehigh96 MIT8 MSU24 MU78 Maine59 Maryland58 Mich67 Michigan23 Middlebury45 Mississippi66 NYU9 Northeastern19 Northwestern25 NotreDame57 Oberlin44 Oklahoma97 Penn94 Pepperdine86 Princeton12 Reed98 Rice31 Rochester38 Rutgers89 Santa74 Simmons81 Smith60 Stanford3 Swarthmore42 Syracuse56 Temple83 Tennessee95 Texas80 Texas84 Trinity100 Tufts18 Tulane29 UC33 UC61 UC64 UCF52 UCLA26 UCSB37 UCSC68 UCSD34 UChicago30 UConn91 UF21 UGA50 UIllinois20 UMass92 UNC28 UPenn7 USC35 USF51 USFCA72 UVA16 Vanderbilt48 Vassar85 Vermont70 Villanova62 Virginia63 Wake73 WashU32 Wellesley22 Wesleyan43 William77 Williams40 Wisconsin87 Yale4)
+networks=(BU10 FSU53 NYU9 UIllinois20 Northeastern19 Texas84 UC61 Harvard1 Michigan23 Indiana69 Cornell5 Syracuse56 GWU54 UC33 Virginia63 UConn91 UF21 UCSB37 JMU79 Rutgers89 Tennessee95 Mississippi66 Stanford3 Maryland58 Temple83 Columbia2 Texas80 Bingham82 UCSD34 Northwestern25 UMass92 UGA50 Auburn71 UNC28 MSU24 NotreDame57 USC35 Wisconsin87 BC17 Cal65 Oklahoma97 JohnsHopkins55 Berkeley13 USF51 UCLA26 Penn94 MU78 UPenn7 UVA16 UCF52 Baylor93)
 for nname in ${networks[*]}; do
 
   edgelist_filename=../Facebook100/${nname}.txt.tar.xz

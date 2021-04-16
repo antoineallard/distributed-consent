@@ -17,7 +17,6 @@ matplotlib.use('agg')
 def lowerbound(x):
     return np.percentile(x, 5)
 
-
 def upperbound(x):
     return np.percentile(x, 95)
 
@@ -58,6 +57,9 @@ for names in glob.glob("../Facebook100/*.txt.tar.xz"):
         header = open(graph_properties_filename, 'r').readline().replace('#', ' ').split()
         df = pd.read_table(graph_properties_filename, names=header, comment="#", delimiter=r"\s+")
 
+        # if df["NbVertices"][0].item() < 2000:
+        #     continue
+
         df["counter_culture"] = (df["NObsGCNbType0"] + df["NObsGCNbType1"] + df["NObsGCNbType2"]) / df["NbVertices"]
         df["herd_immunity"] = (df["ObsNbType1"] / (df["ObsNbType1"] + df["NObsNbType1"]))
         df["obs_comp"] = (df["ObsNbType0"] + df["ObsNbType1"] + df["ObsNbType2"]) / df["NbVertices"]
@@ -84,6 +86,8 @@ for names in glob.glob("../Facebook100/*.txt.tar.xz"):
         ax2.plot(df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].index.values * priv_prof_frac,
                  df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].values,
                  linewidth=1.5, color="#78ccf2", alpha=0.35)
+        # if np.any(df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].values / df0['mean'].loc[quantity_to_plot].loc[obs_depth, priv_prof_frac, app_coverage].values[0] > 1):
+        #     print(name)
 
 
 ax0.set_xlabel("Adoption of distributed consent")
@@ -97,4 +101,8 @@ ax1.set_ylabel("Fraction of observed type 1")
 ax2.set_xlabel("Adoption of distributed consent")
 ax2.set_ylabel("Fraction of observed individuals")
 
-fig.savefig("figure2.pdf")
+ax0.set_ybound(0, 0.4)
+ax1.set_ybound(0.955, 1.0)
+ax2.set_ybound(0.55, 1.0)
+
+fig.savefig("figure2.pdf", bbox_inches='tight')
