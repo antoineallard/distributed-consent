@@ -9,7 +9,7 @@ fraction_of_private_profiles_values=(0.333333) # 0.500000 0.800000)
 
 adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
 
-nb_simulations=10
+nb_simulations=300
 
 
 # Compiles the binary file if it does not already exist.

@@ -57,8 +57,8 @@ for names in glob.glob("../Facebook100/*.txt.tar.xz"):
         header = open(graph_properties_filename, 'r').readline().replace('#', ' ').split()
         df = pd.read_table(graph_properties_filename, names=header, comment="#", delimiter=r"\s+")
 
-        # if df["NbVertices"][0].item() < 2000:
-        #     continue
+        if df["NbVertices"][0].item() < 2000:
+            continue
 
         df["counter_culture"] = (df["NObsGCNbType0"] + df["NObsGCNbType1"] + df["NObsGCNbType2"]) / df["NbVertices"]
         df["herd_immunity"] = (df["ObsNbType1"] / (df["ObsNbType1"] + df["NObsNbType1"]))
