@@ -62,7 +62,7 @@ for nname in ${networks[*]}; do
     for app_coverage in ${app_coverage_values[*]}; do
       for fraction_of_private_profiles in ${fraction_of_private_profiles_values[*]}; do
 
-        # When running simulations on the cedar server on Compute Canada.
+        # When running simulations on a Compute Canada cluster.
         bash launch_single_layer_simulations_on_cedar.sh $network_name $observation_depth_L $app_coverage $fraction_of_private_profiles $nb_simulations $output_filename 0 0.025 1.000000001
 
         # # When running simulations locally.

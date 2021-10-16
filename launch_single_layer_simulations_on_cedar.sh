@@ -76,4 +76,4 @@ sed -i 's,TIME,'"${time}"',g'                                                 mo
 sbatch model_script.pbs
 
 # Deletes the script.
-rm model_script.pbs
+# rm model_script.pbs
