@@ -29,10 +29,10 @@ echo "Job ID: \$SLURM_JOB_ID"
 echo ""
 # ---------------------------------------------------------------------
 
+touch \$HOME/scratch/\$SLURM_JOB_ID.txt
 adoption_within_private_profiles_values=\$(seq START STEP STOP)
 for adoption_within_private_profiles in \${adoption_within_private_profiles_values[*]}; do
-  echo \$adoption_within_private_profiles
-  ./bin/single_layer NAME1.txt OBSERVATION_DEPTH_L APP_COVERAGE FRACTION_OF_PRIVATE_PROFILES \$adoption_within_private_profiles NB_SIMULATIONS NAME1 > \$HOME/scratch/\$SLURM_JOB_ID.txt
+  ./bin/single_layer Facebook100/NAME1.txt OBSERVATION_DEPTH_L APP_COVERAGE FRACTION_OF_PRIVATE_PROFILES \$adoption_within_private_profiles NB_SIMULATIONS NAME1 >> \$HOME/scratch/\$SLURM_JOB_ID.txt
 done
 
 cat \$HOME/scratch/\$SLURM_JOB_ID.txt >> OUTPUT_FILENAME
@@ -76,4 +76,4 @@ sed -i 's,TIME,'"${time}"',g'                                                 mo
 sbatch model_script.pbs
 
 # Deletes the script.
-# rm model_script.pbs
+rm model_script.pbs

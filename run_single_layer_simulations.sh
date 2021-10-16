@@ -53,8 +53,9 @@ for nname in ${networks[*]}; do
   fi
 
   # Uncompiles the archive containing the edgelist
-  if [[ ! -f ${network_name}.txt ]]; then
+  if [[ ! -f Facebook100/${network_name}.txt ]]; then
     tar xJf ${edgelist_filename}
+    mv ${network_name}.txt Facebook100/
   fi
 
   # Runs the script.
@@ -75,7 +76,7 @@ for nname in ${networks[*]}; do
     done
   done
 
-  # # Removes the edgelist filename
-  # rm ${network_name}.txt
+  # # Removes the edgelist filename (running simulations locally).
+  # rm Facebook100/${network_name}.txt
 
 done
