@@ -63,7 +63,7 @@ for nname in ${networks[*]}; do
       for fraction_of_private_profiles in ${fraction_of_private_profiles_values[*]}; do
 
         # When running simulations on the cedar server on Compute Canada.
-        bash launch_single_layer_simulations_on_cedar.sh ${network_name}.txt $observation_depth_L $app_coverage $fraction_of_private_profiles $nb_simulations $network_name $output_filename 0 0.025 1.000000001
+        bash launch_single_layer_simulations_on_cedar.sh $network_name $observation_depth_L $app_coverage $fraction_of_private_profiles $nb_simulations $output_filename 0 0.025 1.000000001
 
         # # When running simulations locally.
         # adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
