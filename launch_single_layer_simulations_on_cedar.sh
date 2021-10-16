@@ -57,7 +57,7 @@ start=$7
 step=$8
 stop=$9
 
-time="72:00:00"
+time="11:00:00"
 
 
 #  Copies the model script (see above) file and changes the variables.
