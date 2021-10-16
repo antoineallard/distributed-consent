@@ -71,5 +71,8 @@ sed -i 's,STEP,'"${step}"',g'                                                 mo
 sed -i 's,STOP,'"${stop}"',g'                                                 model_script.pbs
 sed -i 's,TIME,'"${time}"',g'                                                 model_script.pbs
 
+#  Submits the task.
+sbatch model_script.pbs
+
 # Deletes the script.
 rm model_script.pbs
