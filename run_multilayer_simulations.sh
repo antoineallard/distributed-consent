@@ -20,7 +20,7 @@ nb_simulations=700
 
 # Compiles the binary file if it does not already exist.
 if [[ ! -f bin/emergence_of_components ]]; then
-  g++ -O3 -std=c++11 src/emergence_of_components.cpp -o bin/emergence_of_components
+  g++ -O3 -std=c++11 code/emergence_of_components.cpp -o bin/emergence_of_components
 fi
 
 

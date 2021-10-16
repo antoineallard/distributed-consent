@@ -11,7 +11,7 @@ nb_simulations=100
 
 # Compiles the binary file if it does not already exist.
 if [[ ! -f bin/single_layer ]]; then
-  g++ -O3 -std=c++11 src/single_layer.cpp -o bin/single_layer
+  g++ -O3 -std=c++11 code/single_layer.cpp -o bin/single_layer
 fi
 
 
