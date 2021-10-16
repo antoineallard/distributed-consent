@@ -54,7 +54,7 @@ for nname in ${networks[*]}; do
 
   # Uncompiles the archive containing the edgelist
   if [[ ! -f ${network_name}.txt ]]; then
-    tar xJf ${edgelist_filename} -C Facebook100/
+    tar xJf ${edgelist_filename}
   fi
 
   # Runs the script.

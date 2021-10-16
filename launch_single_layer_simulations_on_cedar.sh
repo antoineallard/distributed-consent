@@ -29,7 +29,7 @@ echo "Job ID: \$SLURM_JOB_ID"
 echo ""
 # ---------------------------------------------------------------------
 
-# adoption_within_private_profiles_values=\$(seq START STEP STOP)
+adoption_within_private_profiles_values=\$(seq START STEP STOP)
 for adoption_within_private_profiles in \${adoption_within_private_profiles_values[*]}; do
   echo \$adoption_within_private_profiles
   ./bin/single_layer NAME1.txt OBSERVATION_DEPTH_L APP_COVERAGE FRACTION_OF_PRIVATE_PROFILES \$adoption_within_private_profiles NB_SIMULATIONS NAME1 > \$HOME/scratch/\$SLURM_JOB_ID.txt
