@@ -16,7 +16,7 @@ cat <<END_OF_SCRIPT > model_script.pbs
 #SBATCH --job-name=NAME1
 #SBATCH --account=def-aallard
 #SBATCH --time=TIME
-#SBATCH --output=../bin/cedar_log_files/%x-%j.txt
+#SBATCH --output=bin/cedar_log_files/%x-%j.txt
 # ---------------------------------------------------------------------
 echo ""
 echo "Current working directory: \`pwd\`"
@@ -32,7 +32,7 @@ echo ""
 touch \$HOME/scratch/\$SLURM_JOB_ID.txt
 adoption_within_private_profiles_values=\$(seq START STEP STOP)
 for adoption_within_private_profiles in \${adoption_within_private_profiles_values[*]}; do
-  ../bin/single_layer ../Facebook100/NAME1.txt OBSERVATION_DEPTH_L APP_COVERAGE FRACTION_OF_PRIVATE_PROFILES \$adoption_within_private_profiles NB_SIMULATIONS NAME1 >> \$HOME/scratch/\$SLURM_JOB_ID.txt
+  bin/single_layer ../Facebook100/NAME1.txt OBSERVATION_DEPTH_L APP_COVERAGE FRACTION_OF_PRIVATE_PROFILES \$adoption_within_private_profiles NB_SIMULATIONS NAME1 >> \$HOME/scratch/\$SLURM_JOB_ID.txt
 done
 
 cat \$HOME/scratch/\$SLURM_JOB_ID.txt >> OUTPUT_FILENAME
