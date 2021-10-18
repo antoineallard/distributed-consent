@@ -11,7 +11,7 @@ nb_simulations=100
 
 # Compiles the binary file if it does not already exist.
 if [[ ! -f ../bin/single_layer ]]; then
-  g++ -O3 -std=c++11 ../code/single_layer.cpp -o ../bin/single_layer
+  g++ -O3 -std=c++11 single_layer.cpp -o ../bin/single_layer
 fi
 
 
@@ -69,7 +69,7 @@ for nname in ${networks[*]}; do
         # # When running simulations locally.
         # adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
         # for adoption_within_private_profiles in ${adoption_within_private_profiles_values[*]}; do
-        #   ./bin/single_layer ${network_name}.txt $observation_depth_L $app_coverage $fraction_of_private_profiles $adoption_within_private_profiles $nb_simulations $network_name >> $output_filename
+        #   ../bin/single_layer ${network_name}.txt $observation_depth_L $app_coverage $fraction_of_private_profiles $adoption_within_private_profiles $nb_simulations $network_name >> $output_filename
         # done
 
       done
