@@ -2,11 +2,11 @@
 
 observation_depth_L_values=(2)
 
-app_coverage_values=(0.01)
+app_coverage_values=(0.01 0.025 0.005 0.001 0.0005)
 
-fraction_of_private_profiles_values=(0.333333) # 0.500000 0.800000)
+fraction_of_private_profiles_values=(0.333333 0.500000 0.66666)
 
-nb_simulations=100
+nb_simulations=500
 
 
 # Compiles the binary file if it does not already exist.

@@ -2,20 +2,11 @@
 
 observation_depth_L_values=(2)
 
-#app_coverage_values=(0.01)
-#app_coverage_values=(0.0050126)
-app_coverage_values=(0.0025)
+app_coverage_values=(0.01 0.025 0.005 0.001 0.0005)
 
-fraction_of_private_profiles_values=(0.333333) # 0.500000 0.800000)
+fraction_of_private_profiles_values=(0.333333 0.500000 0.66666)
 
-adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
-#adoption_within_private_profiles_values=$(seq 0 0.1 1.000000001)
-
-#adoption_of_passports_values=$(seq 0.95 0.05 1.00000001)
-#now set below
-
-#nb_simulations=700
-nb_simulations=100
+nb_simulations=500
 
 
 # Compiles the binary file if it does not already exist.
@@ -74,12 +65,13 @@ for nname in ${networks[*]}; do
   for observation_depth_L in ${observation_depth_L_values[*]}; do
     for app_coverage in ${app_coverage_values[*]}; do
       for fraction_of_private_profiles in ${fraction_of_private_profiles_values[*]}; do
-        for adoption_of_passports in 0.50 0.90 0.95 1.00; do
+        for adoption_of_passports in 0 0.25 0.50 0.90 0.95 1.00; do
 
           # When running simulations on a Compute Canada cluster.
           bash launch_multilayer_simulations_on_cedar.sh $network_name $observation_depth_L $app_coverage $fraction_of_private_profiles $adoption_of_passports $nb_simulations $output_filename 0 0.025 1.000000001
 
           # # When running simulations locally.
+          # adoption_within_private_profiles_values=$(seq 0 0.025 1.000000001)
           # for adoption_within_private_profiles in ${adoption_within_private_profiles_values[*]}; do
           #   bin/emergence_of_components ${network_name}.txt $observation_depth_L $app_coverage $fraction_of_private_profiles $adoption_within_private_profiles $adoption_of_passports $nb_simulations $network_name >> $output_filename
           # done
