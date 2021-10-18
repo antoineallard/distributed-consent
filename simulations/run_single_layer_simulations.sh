@@ -78,6 +78,6 @@ for nname in ${networks[*]}; do
   done
 
   # # Removes the edgelist filename (running simulations locally).
-  # rm Facebook100/${network_name}.txt
+  # rm ../Facebook100/${network_name}.txt
 
 done
