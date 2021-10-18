@@ -54,6 +54,7 @@ for nname in ${networks[*]}; do
 
   # Uncompiles the archive containing the edgelist
   if [[ ! -f ../Facebook100/${network_name}.txt ]]; then
+    echo 'extracting edgelist for '${network_name}
     tar xJf ${edgelist_filename}
     mv ${network_name}.txt ../Facebook100/
   fi
