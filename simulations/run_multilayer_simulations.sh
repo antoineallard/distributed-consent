@@ -20,6 +20,7 @@ nb_simulations=700
 
 # Compiles the binary file if it does not already exist.
 if [[ ! -f bin/multilayer ]]; then
+  echo 'compiling bin/multilayer'
   g++ -O3 -std=c++11 multilayer.cpp -o bin/multilayer
 fi
 
