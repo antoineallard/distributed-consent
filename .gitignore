@@ -3,7 +3,10 @@
 **/*.txt
 **/*.pdf
 
-code/compile_single_layer_results.ipynb
+simulations/compile_single_layer_results.ipynb
+distributed-consent.sublime-project
+distributed-consent.sublime-workspace
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
