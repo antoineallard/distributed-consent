@@ -11,6 +11,8 @@ import numpy as np
 
 for results_filename in glob.glob("../results/single_layer/*.dat"):
 
+    print("Compiling " + results_filename.rsplit(".", 1)[-2] + '.json')
+
     header = open(results_filename, 'r').readline().replace('#', ' ').split()
     df = pd.read_table(results_filename, names=header, comment="#", delimiter=r"\s+")
 
