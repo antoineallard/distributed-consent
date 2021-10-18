@@ -56,7 +56,7 @@ nb_simulations=$6
 output_filename=$7
 start=$8
 step=$9
-stop=$10
+stop=${10}
 
 time="11:00:00"
 
