@@ -16,7 +16,7 @@ cat <<END_OF_SCRIPT > model_script.pbs
 #SBATCH --job-name=NAME1
 #SBATCH --account=def-aallard
 #SBATCH --time=TIME
-#SBATCH --output=bin/cedar_log_files/%x-%j.txt
+#SBATCH --output=bin/cedar_log_files/single_layer/%x-%j.txt
 # ---------------------------------------------------------------------
 echo ""
 echo "Current working directory: \`pwd\`"
