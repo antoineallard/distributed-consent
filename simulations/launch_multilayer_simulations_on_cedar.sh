@@ -18,15 +18,15 @@ cat <<END_OF_SCRIPT > model_script.pbs
 #SBATCH --time=TIME
 #SBATCH --output=bin/cedar_log_files/multilayer/%x-%j.txt
 # ---------------------------------------------------------------------
-echo ""
-echo "Current working directory: \`pwd\`"
-echo "Starting run at: \`date\`"
-echo "Submitted by launch_multilayer_simulations_on_cedar.sh"
+# echo ""
+# echo "Current working directory: \`pwd\`"
+# echo "Starting run at: \`date\`"
+# echo "Submitted by launch_multilayer_simulations_on_cedar.sh"
 # ---------------------------------------------------------------------
-echo ""
-echo "Job Name: \$SLURM_JOB_NAME"
-echo "Job ID: \$SLURM_JOB_ID"
-echo ""
+# echo ""
+# echo "Job Name: \$SLURM_JOB_NAME"
+# echo "Job ID: \$SLURM_JOB_ID"
+# echo ""
 # ---------------------------------------------------------------------
 
 touch \$HOME/scratch/\$SLURM_JOB_ID.txt
@@ -39,8 +39,8 @@ cat \$HOME/scratch/\$SLURM_JOB_ID.txt >> OUTPUT_FILENAME
 rm \$HOME/scratch/\$SLURM_JOB_ID.txt
 
 # ---------------------------------------------------------------------
-echo "Job finished with exit code \$? at: \`date\`"
-echo ""
+# echo "Job \$SLURM_JOB_NAME \$SLURM_JOB_ID finished with exit code \$? at: \`date\`"
+# echo ""
 # ---------------------------------------------------------------------
 
 exit
