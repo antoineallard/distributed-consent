@@ -21,4 +21,5 @@ for results_filename in glob.glob("../results/single_layer/*.dat"):
     df["obs_comp"] = (df["ObsNbType0"] + df["ObsNbType1"] + df["ObsNbType2"]) / df["NbVertices"]
 
     pt = df.pivot_table(columns=["ObsDepth", "PrivProfFrac", "AppCoverage", "AdoptionRate"], values = ["counter_culture", "herd_immunity", "obs_comp"], aggfunc = [np.mean])
-    pt.to_json(results_filename.rsplit(".", 1)[-2] + '.json')
+    # pt.to_json(results_filename.rsplit(".", 1)[-2] + '.json')
+    pt.to_pickle(results_filename.rsplit(".", 1)[-2] + '.pkl', compression="xz")
