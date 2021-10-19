@@ -3,7 +3,7 @@
 **/*.txt
 **/*.pdf
 
-simulations/compile_single_layer_results.ipynb
+simulations/compile_results.ipynb
 distributed-consent.sublime-project
 distributed-consent.sublime-workspace
 
