@@ -10,6 +10,6 @@ module load scipy-stack
 
 python compile_single_layer_results.py
 
-git add ../results/single_layer/*.json
-git commit -m "updated single_layer json files"
+git add ../results/single_layer/*.pkl
+git commit -m "updated single_layer pkl files"
 git push origin main
