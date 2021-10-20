@@ -18,8 +18,9 @@ for results_filename in glob.glob("../results/single_layer/*.dat"):
 
     df["counter_culture"] = (df["NObsGCNbType0"] + df["NObsGCNbType1"] + df["NObsGCNbType2"]) / df["NbVertices"]
     df["herd_immunity"] = (df["ObsNbType1"] / (df["ObsNbType1"] + df["NObsNbType1"]))
+    df["herd_immunity2"] = (df["ObsNbType2"] / (df["ObsNbType2"] + df["NObsNbType2"]))
     df["obs_comp"] = (df["ObsNbType0"] + df["ObsNbType1"] + df["ObsNbType2"]) / df["NbVertices"]
 
-    pt = df.pivot_table(columns=["ObsDepth", "PrivProfFrac", "AppCoverage", "AdoptionRate"], values = ["counter_culture", "herd_immunity", "obs_comp"], aggfunc = [np.mean])
+    pt = df.pivot_table(columns=["ObsDepth", "PrivProfFrac", "AppCoverage", "AdoptionRate"], values = ["counter_culture", "herd_immunity", "herd_immunity2", "obs_comp"], aggfunc = [np.mean])
     # pt.to_json(results_filename.rsplit(".", 1)[-2] + '.json')
     pt.to_pickle(results_filename.rsplit(".", 1)[-2] + '.pkl', compression="xz")
