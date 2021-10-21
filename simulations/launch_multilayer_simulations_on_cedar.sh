@@ -8,7 +8,7 @@
 
 # =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
 # Ecriture du script de soumission et des commandes a executer.
-cat <<END_OF_SCRIPT > model_script.pbs
+cat <<END_OF_SCRIPT > model_script_multilayer.pbs
 #!/bin/bash
 # ---------------------------------------------------------------------
 # SLURM script for job submission on a Compute Canada cluster.
@@ -62,20 +62,20 @@ time="11:00:00"
 
 
 #  Copies the model script (see above) file and changes the variables.
-sed -i 's,NAME1,'"${network_name}"',g'                                        model_script.pbs
-sed -i 's,OBSERVATION_DEPTH_L,'"${observation_depth_L}"',g'                   model_script.pbs
-sed -i 's,APP_COVERAGE,'"${app_coverage}"',g'                                 model_script.pbs
-sed -i 's,FRACTION_OF_PRIVATE_PROFILES,'"${fraction_of_private_profiles}"',g' model_script.pbs
-sed -i 's,ADOPTION_OF_PASSPORTS,'"${adoption_of_passports}"',g'               model_script.pbs
-sed -i 's,NB_SIMULATIONS,'"${nb_simulations}"',g'                             model_script.pbs
-sed -i 's,OUTPUT_FILENAME,'"${output_filename}"',g'                           model_script.pbs
-sed -i 's,START,'"${start}"',g'                                               model_script.pbs
-sed -i 's,STEP,'"${step}"',g'                                                 model_script.pbs
-sed -i 's,STOP,'"${stop}"',g'                                                 model_script.pbs
-sed -i 's,TIME,'"${time}"',g'                                                 model_script.pbs
+sed -i 's,NAME1,'"${network_name}"',g'                                        model_script_multilayer.pbs
+sed -i 's,OBSERVATION_DEPTH_L,'"${observation_depth_L}"',g'                   model_script_multilayer.pbs
+sed -i 's,APP_COVERAGE,'"${app_coverage}"',g'                                 model_script_multilayer.pbs
+sed -i 's,FRACTION_OF_PRIVATE_PROFILES,'"${fraction_of_private_profiles}"',g' model_script_multilayer.pbs
+sed -i 's,ADOPTION_OF_PASSPORTS,'"${adoption_of_passports}"',g'               model_script_multilayer.pbs
+sed -i 's,NB_SIMULATIONS,'"${nb_simulations}"',g'                             model_script_multilayer.pbs
+sed -i 's,OUTPUT_FILENAME,'"${output_filename}"',g'                           model_script_multilayer.pbs
+sed -i 's,START,'"${start}"',g'                                               model_script_multilayer.pbs
+sed -i 's,STEP,'"${step}"',g'                                                 model_script_multilayer.pbs
+sed -i 's,STOP,'"${stop}"',g'                                                 model_script_multilayer.pbs
+sed -i 's,TIME,'"${time}"',g'                                                 model_script_multilayer.pbs
 
 #  Submits the task.
-sbatch model_script.pbs
+sbatch model_script_multilayer.pbs
 
 # Deletes the script.
-rm model_script.pbs
+rm model_script_multilayer.pbs
