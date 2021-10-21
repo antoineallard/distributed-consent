@@ -2,6 +2,7 @@
 **/*_empty.tmp
 **/*.txt
 **/*.pdf
+**/*.pbs
 **/*.sublime-project
 **/*.sublime-workspace
 **/*.ipynb
