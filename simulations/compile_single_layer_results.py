@@ -16,6 +16,9 @@ for results_filename in glob.glob("../results/single_layer/*.dat"):
     header = open(results_filename, 'r').readline().replace('#', ' ').split()
     df = pd.read_table(results_filename, names=header, comment="#", delimiter=r"\s+")
 
+    if len(df['Name'].unique()) > 1:
+        print(df['Name'].unique())
+
     df["CounterCulture"] = (df["NObsGCNbType0"] + df["NObsGCNbType1"] + df["NObsGCNbType2"]) / df["NbVertices"]
     df["HerdImmunityType1"] = (df["ObsNbType1"] / (df["ObsNbType1"] + df["NObsNbType1"]))
     df["HerdImmunityType2"] = (df["ObsNbType2"] / (df["ObsNbType2"] + df["NObsNbType2"]))
