@@ -21,6 +21,7 @@ plt.rcParams["legend.fancybox"] = False
 
 
 fig = plt.figure(constrained_layout=True, figsize=(18, 11))
+
 gs = matplotlib.gridspec.GridSpec(nrows=2,
                                   ncols=3,
                                   figure=fig,
@@ -28,6 +29,7 @@ gs = matplotlib.gridspec.GridSpec(nrows=2,
                                   height_ratios=[1, 1],
                                   wspace=0.2, hspace=0.05
                                   )
+
 ax0 = fig.add_subplot(gs[0, 0])
 ax1 = fig.add_subplot(gs[0, 1])
 ax2 = fig.add_subplot(gs[0, 2])
