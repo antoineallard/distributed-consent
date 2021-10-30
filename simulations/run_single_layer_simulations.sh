@@ -1,4 +1,8 @@
+#!/bin/bash
 
+# Antoine Allard
+# antoineallard.info
+# Octobre 2021
 
 observation_depth_L_values=(2)
 
