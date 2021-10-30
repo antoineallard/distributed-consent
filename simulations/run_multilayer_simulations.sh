@@ -7,7 +7,8 @@
 
 observation_depth_L_values=(2)
 
-app_coverage_values=(0.01 0.025 0.005 0.001 0.0005 0.0001)
+# app_coverage_values=(0.01 0.025 0.005 0.001 0.0005 0.0001)
+app_coverage_values=(0.0025)
 
 fraction_of_private_profiles_values=(0.333333 0.500000 0.66666)
 
