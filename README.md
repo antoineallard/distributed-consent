@@ -7,12 +7,12 @@ Limits of individual consent and models of distributed consent in online social 
 [arXiv:2006.16140]
 
 
-#### Facebook100 dataset
+### Facebook100 dataset
 
 The [Facebook100 dataset](http://doi.org/10.1016/j.physa.2011.12.021) must be [downloaded](https://archive.org/details/oxford-2005-facebook-matrix) and the `.mat` files must be be placed in the `Facebook100` directory. The individual edgelists are then extracted by executing the python script `extract_edgelists.py`.
 
 
-#### Generating the figures
+### Generating the figures
 
 Running the following scripts from `simulations/` generates and compiles the data used in the figures
 ```
