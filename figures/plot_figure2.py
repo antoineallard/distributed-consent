@@ -2,16 +2,17 @@
 # @author: Antoine Allard <antoineallard.info>
 
 # Packages
-import matplotlib
-import matplotlib.pyplot as plt
-import matplotlib.gridspec
 import glob
-import os
 import numpy as np
-matplotlib.use('agg')
+import matplotlib
+import matplotlib.gridspec
+import matplotlib.pyplot as plt
+import os
+import pandas as pd
 
 
 # Global parameters for the figures.
+matplotlib.use('agg')
 plt.style.use('seaborn-deep')
 plt.rcParams["text.usetex"] = True
 plt.rcParams["font.size"] = 24
@@ -45,6 +46,9 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
 
         pt = pd.read_pickle(filename, compression="xz")
 
+        # =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+        # First row.
+
         # valeurs utilisées dans la version actuelle du papier
         obs_depth = 2
         priv_prof_frac = 0.333333
@@ -70,6 +74,9 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
                  pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values / pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values[1],
                  linewidth=1.5, color="#f278cc", alpha=0.35)
 
+
+        # =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
+        # Second row.
 
         obs_depth = 2
         priv_prof_frac = 0.333333  # options: 0.333333 0.500000 0.66666
