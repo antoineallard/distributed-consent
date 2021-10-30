@@ -24,5 +24,7 @@ for results_filename in glob.glob("../results/single_layer/*.dat"):
     df["HerdImmunityType2"] = (df["ObsNbType2"] / (df["ObsNbType2"] + df["NObsNbType2"]))
     df["ObsCompRelSize"] = (df["ObsNbType0"] + df["ObsNbType1"] + df["ObsNbType2"]) / df["NbVertices"]
 
-    pt = df.pivot_table(columns=["ObsDepth", "PrivProfFrac", "AppCoverage", "AdoptionRate"], values = ["CounterCulture", "HerdImmunityType1", "HerdImmunityType2", "ObsCompRelSize"], aggfunc = [np.mean])
+    pt = df.pivot_table(columns=["ObsDepth", "PrivProfFrac", "AppCoverage", "AdoptionRate"],
+                        values = ["CounterCulture", "HerdImmunityType1", "HerdImmunityType2", "ObsCompRelSize"],
+                        aggfunc = [np.mean])
     pt.to_pickle(results_filename.rsplit(".", 1)[-2] + '.pkl', compression="xz")
