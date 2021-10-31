@@ -58,10 +58,6 @@ for filename in glob.glob("../results/multilayer/*.pkl"):
         priv_prof_frac = 0.333333
         app_coverage = 0.0025
 
-        # Ajouté car il manque des simulations pour app_coverage = 0.0025 (simulations en cours).
-        if app_coverage not in pt['mean', obs_depth, priv_prof_frac].columns.get_level_values(0):
-            continue
-
         passport_adopt = 0.500000
         ax0.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage, passport_adopt].loc[quantity_to_plot].index.values * priv_prof_frac,
                  pt['mean', obs_depth, priv_prof_frac, app_coverage, passport_adopt].loc[quantity_to_plot].values,
