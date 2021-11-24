@@ -13,7 +13,7 @@ app_coverage_values=(0.0005 0.0001)
 # fraction_of_private_profiles_values=(0.333333 0.500000 0.66666)
 fraction_of_private_profiles_values=(0.333333 0.66666)
 
-nb_simulations=500
+nb_simulations=1000
 
 
 # Compiles the binary file if it does not already exist.
