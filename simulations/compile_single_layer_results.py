@@ -14,10 +14,17 @@ for results_filename in glob.glob("../results/single_layer/*.dat"):
     print("Updating " + results_filename.rsplit(".", 1)[-2] + '.pkl')
 
     header = open(results_filename, 'r').readline().replace('#', ' ').split()
-    df = pd.read_table(results_filename, names=header, comment="#", delimiter=r"\s+")
+    df = pd.read_table(results_filename, names=header, comment="#", delimiter=r"\s+", on_bad_lines='warn')
+
+    if len(df['NbVertices'].unique()) > 1:
+        d = df['NbVertices'].value_counts().to_dict()
+        del d[max(d, key=lambda k: d[k])]
+    df.drop(df[df['NbVertices'].isin(d.keys())].index, inplace=True)
 
     if len(df['Name'].unique()) > 1:
-        print(df['Name'].unique())
+        d = df['Name'].value_counts().to_dict()
+        del d[max(d, key=lambda k: d[k])]
+    df.drop(df[df['Name'].isin(d.keys())].index, inplace=True)
 
     df["CounterCulture"] = (df["NObsGCNbType0"] + df["NObsGCNbType1"] + df["NObsGCNbType2"]) / df["NbVertices"]
     df["HerdImmunityType1"] = (df["ObsNbType1"] / (df["ObsNbType1"] + df["NObsNbType1"]))
