@@ -121,3 +121,4 @@ ax1.set_ybound(0,0.4)
 ax2.set_ybound(0,0.4)
 
 fig.savefig("figure3.pdf", bbox_inches='tight')
+fig.savefig("figure3.svg", bbox_inches='tight')

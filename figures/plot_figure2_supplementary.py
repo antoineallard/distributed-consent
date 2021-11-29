@@ -59,12 +59,12 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
         app_coverage = 0.01
 
         quantity_to_plot = "ObsCompRelSize"
-        ax0.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values * priv_prof_frac,
+        ax0.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
                  pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values,
                  linewidth=1.5, color="#78ccf2", alpha=0.35)
 
         quantity_to_plot = "CounterCulture"
-        ax1.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values * priv_prof_frac,
+        ax1.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
                  pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values,
                  linewidth=1.5, color="k", alpha=0.35)
 
@@ -74,7 +74,7 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
                   linewidth=1.5, color="#f29e78", alpha=0.35)
 
         quantity_to_plot = "HerdImmunityType2"
-        ax3.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values * priv_prof_frac,
+        ax3.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
                  pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values / pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values[1],
                  linewidth=1.5, color="#f278cc", alpha=0.35)
 
@@ -83,16 +83,16 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
         # Second row.
 
         obs_depth = 2
-        priv_prof_frac = 0.333333  # options: 0.333333 0.500000 0.66666
-        app_coverage = 0.0005      # options: 0.01 0.025 0.005 0.001 0.0005 0.0001
+        priv_prof_frac = 0.66666  # options: 0.333333 0.500000 0.66666
+        app_coverage = 0.01      # options: 0.01 0.025 0.005 0.001 0.0005 0.0001
 
         quantity_to_plot = "ObsCompRelSize"
-        ax4.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values * priv_prof_frac,
+        ax4.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
                  pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values,
                  linewidth=1.5, color="#78ccf2", alpha=0.35)
 
         quantity_to_plot = "CounterCulture"
-        ax5.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values * priv_prof_frac,
+        ax5.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
                  pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values,
                  linewidth=1.5, color="k", alpha=0.35)
 
@@ -102,38 +102,38 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
                   linewidth=1.5, color="#f29e78", alpha=0.35)
 
         quantity_to_plot = "HerdImmunityType2"
-        ax7.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values * priv_prof_frac,
+        ax7.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
                  pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values / pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].values[1],
                  linewidth=1.5, color="#f278cc", alpha=0.35)
 
 
-ax0.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 1\%')
-ax1.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 1\%')
-ax2.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 1\%')
-ax3.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 1\%')
-ax4.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 0.05\%')
-ax5.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 0.05\%')
-ax6.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 0.05\%')
-ax7.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Compromised accounts $\phi$ = 0.05\%')
-ax1.plot(np.arange(0,0.33,0.01), (2/3)*np.arange(0,0.33,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
-ax5.plot(np.arange(0,0.33,0.01), (2/3)*np.arange(0,0.33,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
+ax0.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 33\%')
+ax1.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 33\%')
+ax2.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 33\%')
+ax3.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 33\%')
+ax4.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 66\%')
+ax5.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 66\%')
+ax6.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 66\%')
+ax7.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 66\%')
+ax1.plot(np.arange(0,1.0,0.01), (2/9)*np.arange(0,1.0,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
+ax5.plot(np.arange(0,1.0,0.01), (2/9)*np.arange(0,1.0,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
 ax0.legend(loc="lower left", ncol=1, handlelength=0, prop={"size": "x-small"})
 ax1.legend(loc="upper left", ncol=1, handlelength=1,  prop={"size": "x-small"})
 ax2.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax3.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
-ax4.legend(loc="upper left", ncol=1, handlelength=0,  prop={"size": "x-small"})
+ax4.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax5.legend(loc="upper left", ncol=1, handlelength=1,  prop={"size": "x-small"})
 ax6.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax7.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 
-ax0.set_xlabel("Adoption of distributed consent")
-ax1.set_xlabel("Adoption of distributed consent")
-ax2.set_xlabel("Adoption of distributed consent")
-ax3.set_xlabel("Adoption of distributed consent")
-ax4.set_xlabel("Adoption of distributed consent")
-ax5.set_xlabel("Adoption of distributed consent")
-ax6.set_xlabel("Adoption of distributed consent")
-ax7.set_xlabel("Adoption of distributed consent")
+ax0.set_xlabel("Distributed consent / taste for privacy")
+ax1.set_xlabel("Distributed consent / taste for privacy")
+ax2.set_xlabel("Distributed consent / taste for privacy")
+ax3.set_xlabel("Distributed consent / taste for privacy")
+ax4.set_xlabel("Distributed consent / taste for privacy")
+ax5.set_xlabel("Distributed consent / taste for privacy")
+ax6.set_xlabel("Distributed consent / taste for privacy")
+ax7.set_xlabel("Distributed consent / taste for privacy")
 
 
 ax0.set_ylabel("Fraction of observed individuals")
@@ -154,5 +154,5 @@ ax5.set_ylim(bottom=-0.025, top=1.025)
 ax6.set_ylim(bottom=0.8, top=1.005)
 ax7.set_ylim(bottom=0.25, top=1.02)
 
-fig.savefig("figure2.pdf", bbox_inches='tight')
-fig.savefig("figure2.svg", bbox_inches='tight')
+fig.savefig("figure2_supplementary.pdf", bbox_inches='tight')
+fig.savefig("figure2_supplementary.svg", bbox_inches='tight')
