@@ -21,13 +21,13 @@ plt.rcParams["legend.frameon"] = False
 plt.rcParams["legend.fancybox"] = False
 
 
-fig = plt.figure(constrained_layout=True, figsize=(18, 11))
+fig = plt.figure(constrained_layout=True, figsize=(18, 5.5))
 
-gs = matplotlib.gridspec.GridSpec(nrows=2,
+gs = matplotlib.gridspec.GridSpec(nrows=1,
                                   ncols=3,
                                   figure=fig,
                                   width_ratios=[1, 1, 1],
-                                  height_ratios=[1, 1],
+                                  height_ratios=[1],
                                   wspace=0.2, hspace=0.05
                                   )
 
@@ -35,9 +35,9 @@ ax0 = fig.add_subplot(gs[0, 0])
 ax1 = fig.add_subplot(gs[0, 1])
 ax2 = fig.add_subplot(gs[0, 2])
 
-ax3 = fig.add_subplot(gs[1, 0])
-ax4 = fig.add_subplot(gs[1, 1])
-ax5 = fig.add_subplot(gs[1, 2])
+# ax3 = fig.add_subplot(gs[1, 0])
+# ax4 = fig.add_subplot(gs[1, 1])
+# ax5 = fig.add_subplot(gs[1, 2])
 
 
 for filename in glob.glob("../results/multilayer/*.pkl"):
