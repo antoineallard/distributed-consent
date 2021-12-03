@@ -56,7 +56,7 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
         # valeurs utilisées dans la version actuelle du papier
         obs_depth = 2
         priv_prof_frac = 0.333333
-        app_coverage = 0.01
+        app_coverage = 0.0005
 
         quantity_to_plot = "ObsCompRelSize"
         ax0.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
@@ -84,7 +84,7 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
 
         obs_depth = 2
         priv_prof_frac = 0.66666  # options: 0.333333 0.500000 0.66666
-        app_coverage = 0.01      # options: 0.01 0.025 0.005 0.001 0.0005 0.0001
+        app_coverage = 0.0005      # options: 0.01 0.025 0.005 0.001 0.0005 0.0001
 
         quantity_to_plot = "ObsCompRelSize"
         ax4.plot(pt['mean', obs_depth, priv_prof_frac, app_coverage].loc[quantity_to_plot].index.values,# * priv_prof_frac,
@@ -116,14 +116,14 @@ ax5.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy 
 ax6.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 66\%')
 ax7.plot(np.NaN, np.NaN, color=None, linewidth = 0, label = r'Taste for privacy = 66\%')
 ax1.plot(np.arange(0,1.0,0.01), (2/9)*np.arange(0,1.0,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
-ax5.plot(np.arange(0,1.0,0.01), (2/9)*np.arange(0,1.0,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
+#ax5.plot(np.arange(0,1.0,0.01), (2/9)*np.arange(0,1.0,0.01), linestyle = '--', color='black', linewidth = 2, label = 'Fraction of prevented data flow')
 ax0.legend(loc="lower left", ncol=1, handlelength=0, prop={"size": "x-small"})
 ax1.legend(loc="upper left", ncol=1, handlelength=1,  prop={"size": "x-small"})
 ax2.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax3.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax4.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax5.legend(loc="upper left", ncol=1, handlelength=1,  prop={"size": "x-small"})
-ax6.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
+ax6.legend(loc="upper right", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax7.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 
 ax0.set_xlabel("Distributed consent / taste for privacy")
@@ -154,5 +154,5 @@ ax5.set_ylim(bottom=-0.025, top=1.025)
 ax6.set_ylim(bottom=0.8, top=1.005)
 ax7.set_ylim(bottom=0.25, top=1.02)
 
-fig.savefig("figure2_supplementary.pdf", bbox_inches='tight')
-fig.savefig("figure2_supplementary.svg", bbox_inches='tight')
+fig.savefig("figure2_supplementary2.pdf", bbox_inches='tight')
+fig.savefig("figure2_supplementary2.svg", bbox_inches='tight')
