@@ -27,7 +27,7 @@ gs = matplotlib.gridspec.GridSpec(nrows=2,
                                   figure=fig,
                                   width_ratios=[1, 1, 1, 1],
                                   height_ratios=[1, 1],
-                                  wspace=0.2, hspace=0.05
+                                  wspace=0.05, hspace=0.05
                                   )
 
 ax0 = fig.add_subplot(gs[0, 0])
@@ -153,6 +153,7 @@ ax4.set_ylim(bottom=-0.025, top=1.025)
 ax5.set_ylim(bottom=-0.025, top=1.025)
 ax6.set_ylim(bottom=0.8, top=1.005)
 ax7.set_ylim(bottom=0.25, top=1.02)
+
 
 fig.savefig("figure2_supplementary.pdf", bbox_inches='tight')
 fig.savefig("figure2_supplementary.svg", bbox_inches='tight')

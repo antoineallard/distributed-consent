@@ -27,7 +27,7 @@ gs = matplotlib.gridspec.GridSpec(nrows=2,
                                   figure=fig,
                                   width_ratios=[1, 1, 1, 1],
                                   height_ratios=[1, 1],
-                                  wspace=0.2, hspace=0.05
+                                  wspace=0.05, hspace=0.05
                                   )
 
 ax0 = fig.add_subplot(gs[0, 0])
@@ -53,7 +53,6 @@ for filename in glob.glob("../results/single_layer/*.pkl"):
         # =~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=
         # First row.
 
-        # valeurs utilisées dans la version actuelle du papier
         obs_depth = 2
         priv_prof_frac = 0.333333
         app_coverage = 0.01
@@ -126,6 +125,17 @@ ax5.legend(loc="upper left", ncol=1, handlelength=1,  prop={"size": "x-small"})
 ax6.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 ax7.legend(loc="lower left", ncol=1, handlelength=0,  prop={"size": "x-small"})
 
+
+ax0.annotate(r'a.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+ax1.annotate(r'b.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+ax2.annotate(r'c.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+ax3.annotate(r'd.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+ax4.annotate(r'e.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+ax5.annotate(r'f.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+ax6.annotate(r'g.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+ax7.annotate(r'h.', xy= (0.99,0.99), xycoords='axes fraction', horizontalalignment='right', verticalalignment='top', fontsize='small')
+
+
 ax0.set_xlabel("Adoption of distributed consent")
 ax1.set_xlabel("Adoption of distributed consent")
 ax2.set_xlabel("Adoption of distributed consent")
@@ -145,6 +155,7 @@ ax6.set_ylabel("Relative fraction of observed type 1")
 ax3.set_ylabel("Relative fraction of observed type 2")
 ax7.set_ylabel("Relative fraction of observed type 2")
 
+
 ax0.set_ylim(bottom=-0.025, top=1.025)
 ax1.set_ylim(bottom=-0.025, top=1.025)
 ax2.set_ylim(bottom=0.8, top=1.005)
@@ -153,6 +164,7 @@ ax4.set_ylim(bottom=-0.025, top=1.025)
 ax5.set_ylim(bottom=-0.025, top=1.025)
 ax6.set_ylim(bottom=0.8, top=1.005)
 ax7.set_ylim(bottom=0.25, top=1.02)
+
 
 fig.savefig("figure2.pdf", bbox_inches='tight')
 fig.savefig("figure2.svg", bbox_inches='tight')

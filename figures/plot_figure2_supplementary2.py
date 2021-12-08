@@ -27,7 +27,7 @@ gs = matplotlib.gridspec.GridSpec(nrows=2,
                                   figure=fig,
                                   width_ratios=[1, 1, 1, 1],
                                   height_ratios=[1, 1],
-                                  wspace=0.2, hspace=0.05
+                                  wspace=0.05, hspace=0.05
                                   )
 
 ax0 = fig.add_subplot(gs[0, 0])
